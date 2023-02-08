@@ -27,6 +27,7 @@ function showContact(name) {
 }
 
 function updateContact(old_name, name, email, phone) {
+    // load contacts
     const contacts = loadContact();
     // find index of old name
     const index = contacts.findIndex((contact) => contact.name.toUpperCase() === old_name.toUpperCase());
@@ -43,7 +44,7 @@ function updateContact(old_name, name, email, phone) {
         }
         contacts[index].name = name;
     }
-    // validate email and phone
+    // validate email
     if (email) {
         if (!validator.isEmail(email)) {
             console.log('Email tidak valid!');
@@ -51,6 +52,7 @@ function updateContact(old_name, name, email, phone) {
         }
         contacts[index].email = email;
     }
+    // validate phone
     if (phone) {
         if (!validator.isMobilePhone(phone, 'id-ID')) {
             console.log('Nomor telepon tidak valid!');
