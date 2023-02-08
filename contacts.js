@@ -35,9 +35,9 @@ function updateContact(old_name, name, email, phone) {
         return false;
     }
     // prevent duplicate name with new name
-    const checkDuplicate = contacts.find((contact) => contact.name.toUpperCase() === name.toUpperCase());
-    if (checkDuplicate) {
-        console.log('Nama sudah digunakan!');
+    const checkDuplicate = contacts.findIndex((contact) => contact.name.toUpperCase() === name.toUpperCase());
+    if (checkDuplicate !== -1) {
+        console.log('Nama sudah terdaftar, gunakan nama lain!');
         return false;
     }
     contacts[index].name = name;
