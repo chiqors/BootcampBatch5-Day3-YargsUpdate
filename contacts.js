@@ -28,6 +28,7 @@ function showContact(name) {
 
 function updateContact(old_name, name, email, phone) {
     const contacts = loadContact();
+    // find index of old name
     const index = contacts.findIndex((contact) => contact.name.toUpperCase() === old_name.toUpperCase());
     if (index === -1) {
         console.log('Contact tidak ditemukan!');
