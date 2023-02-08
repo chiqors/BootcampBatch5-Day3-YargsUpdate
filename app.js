@@ -75,7 +75,7 @@ yargs.command([{
         },
         name: {
             describe: 'Nama lengkap',
-            demandOption: true,
+            demandOption: false,
             type: 'string',
         },
         email: {
@@ -85,7 +85,7 @@ yargs.command([{
         },
         mobile: {
             describe: 'Nomor telepon',
-            demandOption: true,
+            demandOption: false,
             type: 'string',
         },
     },

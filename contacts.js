@@ -35,13 +35,14 @@ function updateContact(old_name, name, email, phone) {
         return false;
     }
     // prevent duplicate name with new name
-    const checkDuplicate = contacts.findIndex((contact) => contact.name.toUpperCase() === name.toUpperCase());
-    if (checkDuplicate !== -1) {
-        console.log('Nama sudah terdaftar, gunakan nama lain!');
-        return false;
+    if (name) {
+        const checkDuplicate = contacts.findIndex((contact) => contact.name.toUpperCase() === name.toUpperCase());
+        if (checkDuplicate !== -1) {
+            console.log('Nama sudah terdaftar, gunakan nama lain!');
+            return false;
+        }
+        contacts[index].name = name;
     }
-    contacts[index].name = name;
-    
     // validate email and phone
     if (email) {
         if (!validator.isEmail(email)) {
@@ -60,7 +61,7 @@ function updateContact(old_name, name, email, phone) {
 
     // save to file
     fs.writeFileSync(dataPath, JSON.stringify(contacts));
-    console.log(`Contact ${old_name} berhasil diupdate menjadi ${name}!`);
+    console.log(`Contact ${old_name} berhasil diupdate!`);
 }
 
 function loadContact() {
